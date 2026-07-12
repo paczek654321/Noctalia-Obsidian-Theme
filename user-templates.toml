@@ -1,0 +1,12 @@
+[config]
+
+[templates]
+[templates.Obsidian]
+input_path = "~/.config/noctalia/templates/obsidian.css"
+output_path = "~/.cache/noctalia/obsidian.css"
+post_hook = '''
+sed 's/.*"path": *"\([^"]*\)".*/\1/p' ~/.config/obsidian/obsidian.json | while read vault; do
+  mkdir -p "$vault/.obsidian/themes/Noctalia"
+  cp -f ~/.cache/noctalia/obsidian.css "$vault/.obsidian/themes/Noctalia/theme.css"
+done
+'''

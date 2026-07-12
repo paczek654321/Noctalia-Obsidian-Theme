@@ -1,0 +1,46 @@
+:root body
+{
+    /* Background colors */
+    --background-primary: #070722;
+    --background-primary-alt: #11112d;
+    --background-secondary: #0c0c27;
+    --background-secondary-alt: #17173c;
+    --background-modifier-hover: #17173c;
+    --background-modifier-active-hover: #1c1c4b;
+    --background-modifier-border: #4e4ec2;
+    --background-modifier-border-hover: #323291;
+    --background-modifier-border-focus: #fff59b;
+    --background-modifier-error-rgb: #fd4663;
+    --background-modifier-error: #900017;
+    --background-modifier-error-hover: #fd4663;
+    --background-modifier-success-rgb: #9bfece;
+    --background-modifier-success: #00e777;
+    --background-modifier-message: #11112d;
+    --background-modifier-form-field: #0c0c27;
+
+    /* Interactive colors */
+    --interactive-normal: #11112d;
+    --interactive-hover: #17173c;
+    --interactive-accent: #fff59b;
+    --interactive-accent-hsl: #fff59b;
+    --interactive-accent-hover: #fff280;
+
+    /* Text foreground colors */
+    --text-normal: #f3edf7;
+    --text-muted: #7c80b4;
+    --text-faint: #4e4ec2;
+    --text-on-accent: #0e0e43;
+    --text-on-accent-inverted: #fff59b;
+    --text-success: #9bfece;
+    --text-warning: #9bfece;
+    --text-error: #fd4663;
+    --text-accent: #fff59b;
+    --text-accent-hover: #fff280;
+
+    /* Text background colors */
+    --text-selection: #e8d000;
+    --text-highlight-bg: #000ef4;
+
+    /* Caret color */
+    --caret-color: #fff59b;
+}
