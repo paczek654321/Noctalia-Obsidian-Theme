@@ -5,8 +5,22 @@
 input_path = "~/.config/noctalia/templates/obsidian.css"
 output_path = "~/.cache/noctalia/obsidian.css"
 post_hook = '''
-sed 's/.*"path": *"\([^"]*\)".*/\1/p' ~/.config/obsidian/obsidian.json | while read vault; do
+# Notify the user that jq is required and quit
+if ! command -v jq &> /dev/null; then
+    notify-send "jq is required for the Noctalia Obsidian theme template."
+    exit 1
+fi
+
+# Store the source sheet path
+sheet=~/.cache/noctalia/obsidian.css
+
+# Copy the Noctalia panel opacity
+alpha=$(noctalia-shell ipc call state all | jq -r '.settings.ui.panelBackgroundOpacity // 1')
+echo ":root { --alpha: $alpha }" >> "$sheet"
+
+# Detect all Obsidian vaults and apply the theme
+jq -r '.vaults[].path' ~/.config/obsidian/obsidian.json | while IFS= read -r vault; do
   mkdir -p "$vault/.obsidian/themes/Noctalia"
-  cp -f ~/.cache/noctalia/obsidian.css "$vault/.obsidian/themes/Noctalia/theme.css"
+  cp -f "$sheet" "$vault/.obsidian/themes/Noctalia/theme.css"
 done
 '''
